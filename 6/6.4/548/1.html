@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.4-548</title>
+</head>
+<body>
+	<script>
+		
+		function search(n) {
+		  var a = [0, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 15, 16,
+			18, 20, 21, 22, 24, 25, 26, 27, 28, 30
+		  ];
+		  var ret = Math.floor(n / 22) * 30 + a[n % 22];
+		  return ret;
+		}
+		console.log(search(1500));
+
+	</script>
+</body>
+</html>

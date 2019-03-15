@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.2-521</title>
+</head>
+<body>
+	<script>
+		var a,b,c,x,y,txt = "阿姆斯壮数:";
+		for(var num = 100; num <= 999; num++) { 
+			a = Math.floor(num / 100); 
+			b = Math.floor((num % 100) / 10); 
+			c = num % 10; 
+			x = a*a*a + b*b*b + c*c*c;
+			y = num;
+			if(x == num) 
+				txt += num + " "; 
+		}
+		console.log(txt);
+		
+	</script>
+</body>
+</html>

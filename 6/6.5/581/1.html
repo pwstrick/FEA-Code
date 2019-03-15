@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.5-581</title>
+</head>
+<body>
+	<script>
+
+		function combinationCount(n) {
+			var count=0;
+			for(var m=0; m<=n; m+=5) {
+			  count += Math.floor((m+2)/2);
+			}
+			return count;
+		}
+		console.log(combinationCount(100));
+
+	</script>
+</body>
+</html>

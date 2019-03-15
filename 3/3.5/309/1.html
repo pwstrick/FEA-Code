@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.5-309</title>
+</head>
+<body>
+	<script>
+		function findDup(array) {
+		  var len = array.length,
+			result = 0;
+		  if (!array || len < 1)
+			return -1;
+		  for (var i = 0; i < len; i++)
+			result ^= array[i];
+		  for (i = 1; i < len; i++)
+			result ^= i;
+		  return result;
+		}
+		var array = [1, 3, 4, 2, 5, 3];
+		console.log(findDup(array));
+	</script>
+</body>
+</html>

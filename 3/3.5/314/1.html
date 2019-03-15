@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.5-314</title>
+</head>
+<body>
+	<script>
+		
+		function maxSubArray(arr) {
+		  var maxSum = Math.min.apply(null, arr),
+			len = arr.length,
+			sum;
+		  for (var i = 0; i < len; i++) {
+			sum = 0;
+			for (var j = i; j < len; j++) {
+			  sum += arr[j];
+			  if (sum > maxSum) {
+				maxSum = sum;
+			  }
+			}
+		  }
+		  return maxSum;
+		}
+		var arr = [1, -2, 4, 8, -4, 7, -1, -5];
+		console.log("连续最大和为：", maxSubArray(arr));
+		
+		
+
+
+	</script>
+</body>
+</html>

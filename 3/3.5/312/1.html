@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.5-312</title>
+</head>
+<body>
+	<script>
+		function getNum(arr) {
+		  var len = arr.length;
+		  if (!arr || len <= 0) {
+			return -1;
+		  }
+		  var suma = 0,
+			sumb = 0;
+		  for (var i = 0; i < len; i++) {
+			suma += arr[i]; //数组元素相加
+			sumb += i + 1; //1~n-1相加
+		  }
+		  //与第n个数相加
+		  sumb += len + 1;
+		  return sumb - suma;
+		}
+
+		var arr = [1, 4, 3, 2, 7, 5];
+		console.log(getNum(arr));
+		
+	</script>
+</body>
+</html>

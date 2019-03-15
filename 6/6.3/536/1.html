@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.2-536</title>
+</head>
+<body>
+	<script>
+		function selectSort(arr) {
+			var len = arr.length,
+					p, tmp;
+			//外层控制轮数
+			for (var i = 0; i < len - 1; i++) {
+				p = i; //先假设最小值的位置
+				//内层控制比较次数，比较i后边的元素
+				for (var j = i + 1; j < len; j++) {
+					//arr[p]是当前已知的最小值
+					if (arr[p] > arr[j]) {
+						//比较发现更小的，就记录下最小值的位置
+						p = j;
+					}
+				}
+				//如果发现最小值的位置与当前假设的位置i不同，则位置互换
+				if (p != i) {
+					tmp = arr[p];
+					arr[p] = arr[i];
+					arr[i] = tmp;
+				}
+			}
+			return arr;
+		}
+
+		var arr = [20, 0, 39, 66, 40, 78, 46, 36, 60, 100],
+				txt = "";
+		for (var k in arr) {
+			txt += arr[k] + " ";
+		}
+		console.log("排序前：", txt);
+		arr = selectSort(arr);
+		txt = "";
+		for (k in arr) {
+			txt += arr[k] + " ";
+		}
+		console.log("排序后：", txt);
+
+
+		
+	</script>
+</body>
+</html>

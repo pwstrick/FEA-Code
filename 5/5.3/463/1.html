@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>5.3-463</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 用数组表示的二叉树
+		 */
+		function BinaryTree(size, root) {
+		  this.size = size;
+		  this.array = [];
+		  for (i = 0; i < size; i++) {
+			this.array[i] = i;
+		  }
+		  this.array[0] = root;
+		}
+		BinaryTree.prototype = {
+			searchNode: function (nodeCode) { //查询结点
+			  if (nodeCode >= this.size || nodeCode < 0) {
+				return false;
+			  }
+			  return this.array[nodeCode];
+			},
+			addNode: function (nodeCode, place, nodeValue) { //增加树结点
+			  if (nodeCode < this.size || nodeCode < 0) {
+				return false;
+			  }
+			  //当添加左孩子时，索引加1；当添加右孩子时，索引加2
+			  var index = place == 0 ? (nodeCode + 1) : (nodeCode + 2);
+			  //存在nodeCode这个结点就结束接下来的添加操作
+			  if (this.array[nodeCode + 1]) {
+				return false;
+			  }
+			  //新结点在相应位置补值
+			  if (nodeCode >= this.size) {
+				for (var i = this.size; i < nodeCode + 1; i++) {
+				  this.array[i] = i;
+				}
+				this.size = index;
+			  }
+			  this.array[index] = nodeValue;
+			},
+			deleteNode: function (nodeCode) { //删除树结点
+			  if (nodeCode >= this.size || nodeCode < 0) {
+				return false;
+			  }
+			  this.array.splice(nodeCode, 1);
+			},
+			showTree: function () { //遍历树
+			  var txt = "";
+			  this.array.forEach(function (value, key) {
+				txt += value + " ";
+			  });
+			  console.log(txt);
+			}
+		};
+
+		//产生一个以2为根结点，9个子结点的二叉树
+		var BinaryTree = new BinaryTree(10, 2);
+		console.log("初始化的二叉树：");
+		BinaryTree.showTree(); //遍历树
+		console.log("搜索根结点：");
+		console.log(BinaryTree.searchNode(0)); //搜索1这个结点
+		BinaryTree.addNode(10, 1, 0);
+		console.log("增加0结点后的二叉树：");
+		BinaryTree.showTree(); //遍历树
+		BinaryTree.deleteNode(1); //删除根结点的下一个结点
+		console.log("删除根结点下一个结点后的二叉树：");
+		BinaryTree.showTree(); //遍历树
+		
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.4-550</title>
+</head>
+<body>
+	<script>
+
+		function power(d, n) {
+		  if (n == 0) return 1;
+		  if (n == 1) return d;
+		  var tmp = power(d, Math.floor(Math.abs(n / 2)));
+		  if (n > 0) {
+			if (n % 2 == 1)
+			  return tmp * tmp * d; //n为奇数
+			return tmp * tmp; //n为偶数
+		  }
+		  if (n % 2 == 1)
+			return 1 / (tmp * tmp * d);
+		  return 1 / (tmp * tmp);
+		}
+		console.log(power(2, 3));
+		console.log(power(-2, 3));
+		console.log(power(2, -3));
+
+
+	</script>
+</body>
+</html>

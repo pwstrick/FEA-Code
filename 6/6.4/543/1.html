@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.4-543</title>
+</head>
+<body>
+	<script>
+
+		function isPower(n) {
+		  if (n < 1)
+			return false;
+		  var m = n & (n - 1);
+		  return m == 0;
+		}
+		console.log(isPower(8));
+		console.log(isPower(9));
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.5-316</title>
+</head>
+<body>
+	<script>
+		
+		function reverse(arr, start, end) {
+		  var temp;
+		  while (start < end) {
+			temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		  }
+		}
+		function rightShift(arr, k) {
+		  var len = arr.length;
+		  if (!arr || len < 1) {
+			return;
+		  }
+		  k %= len;
+		  reverse(arr, 0, len - k - 1);
+		  reverse(arr, len - k, len - 1);
+		  reverse(arr, 0, len - 1);
+		}
+
+		var arr = [1, 2, 3, 4, 5, 6, 7, 8],
+		  k = 4;
+		rightShift(arr, k);
+		console.log(arr.join(" "));
+	</script>
+</body>
+</html>

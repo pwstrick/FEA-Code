@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>5.2-440</title>
+</head>
+<body>
+	<script>
+		//创建一个空数组作为栈
+		var stack = [];
+		//获取栈顶元素
+		function getTop(stack) {
+		  return stack[stack.length - 1];
+		}
+
+		//向数组压入一个元素
+		stack.push(1);
+		stack.push(2);
+		//输出栈顶元素
+		console.log(getTop(stack));
+		//让栈顶元素出栈
+		stack.pop();
+		console.log(getTop(stack));
+		
+		
+	</script>
+</body>
+</html>

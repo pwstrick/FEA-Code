@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.5-310</title>
+</head>
+<body>
+	<script>
+		function getMaxMin(arr) {
+		  var len = arr.length;
+		  if (!arr || len < 1) {
+			return;
+		  }
+		  var max, min, tmp;
+		  //两两分组，把较小的数放到左半部分，较大的放到右半部分
+		  for (var i = 0; i < len; i++) {
+			if (arr[i + 1] !==undefined && arr[i] > arr[i + 1]) {
+			  tmp = arr[i];
+			  arr[i] = arr[i + 1];
+			  arr[i + 1] = tmp;
+			}
+		  }
+		  min = arr[0];
+		  //在各个分组的左半部分找最小值
+		  for (i = 2; i < len; i+=2) {
+			if (arr[i] < min) {
+			  min = arr[i];
+			}
+		  }
+		  //在各个分组的右半部分找最大值
+		  max = arr[1];
+		  for (i = 3; i < len; i+=2) {
+			if (arr[i] > max) {
+			  max = arr[i];
+			}
+		  }
+		  //如果数组中元素个数是奇数个，最后一个元素被分为一组，需要特殊处理
+		  if (len % 2 == 1) {
+			if (max < arr[len - 1])
+			  max = arr[len - 1];
+			if (min > arr[len - 1])
+			  min = arr[len - 1];
+		  }
+		  console.log("最大值：", max);
+		  console.log("最小值：", min);
+		}
+		var arr = [8, 0, 5, 2, 3, 9, 4, 1, 7, 6];
+		getMaxMin(arr);
+
+		
+	</script>
+</body>
+</html>

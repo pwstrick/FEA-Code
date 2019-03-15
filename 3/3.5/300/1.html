@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.5-300</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<script>
+		function isArray(obj) {
+			if(Array.isArray)
+				return Array.isArray(obj);
+			var toString = Object.prototype.toString;
+			return toString.call(obj) === "[object Array]";
+		}
+		console.log(isArray([]));
+		console.log(isArray({}));
+		console.log(isArray(new Array()));
+	</script>
+</body>
+</html>

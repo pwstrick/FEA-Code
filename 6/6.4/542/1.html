@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>6.3-542</title>
+</head>
+<body>
+	<script>
+
+		var n1 = 15,
+		  n2 = 16;
+		function isPower(n) {
+		  if (n <= 0) {
+			return false;
+		  }
+		  var minus = 1;
+		  while (n > 0) {
+			n = n - minus;
+			if (n == 0) //n是某个数的平方
+			  return true;
+			else if (n < 0) //n不是某个数的平方
+			  return false;
+			else //每次减数都加2
+			  minus += 2;
+		  }
+		  return false;
+		}
+		console.log(isPower(n1));
+		console.log(isPower(n2));
+
+		
+	</script>
+</body>
+</html>

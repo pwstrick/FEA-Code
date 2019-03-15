@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>3.6-340</title>
+</head>
+<body>
+	<script>
+		var name = "freedom";	//全局变量
+		var obj = {
+		  name: "justice",
+		  getName: function() {
+			return this.name;
+		  }
+		};
+		var childName = obj.getName;
+		console.log(childName());
+	</script>
+</body>
+</html>
